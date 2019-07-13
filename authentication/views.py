@@ -17,7 +17,7 @@ class RegisterView(generics.GenericAPIView):
     """
     serializer_class = RegisterSerializer
     permission_classes = (permissions.AllowAny,)
-    
+
     def give_response(self,message,token,name):
         response = TokenResponseSerializer({
             'message': message,
@@ -25,7 +25,7 @@ class RegisterView(generics.GenericAPIView):
             'username': name
         })
         return Response(response.data,status.HTTP_200_OK)
-    
+
     def post(self,request):
         self.request = request
         username = request.data['username']
@@ -39,13 +39,19 @@ class RegisterView(generics.GenericAPIView):
 
 class CheckView(generics.GenericAPIView):
     serializer_class = MessageSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.AllowAny,)
 
-    def get(self,request):
+    def give_response(self,message):
         response = MessageSerializer({
-            'message' : "success"
+            'message' : message
         })
         return Response(response.data,status.HTTP_200_OK)
+
+    def get(self,request):
+        if request.user.is_authenticated:
+            return self.give_response("connected_authenticated")
+        else:
+            return self.give_response("connected_unauthenticated")
 
 class LoginView(generics.GenericAPIView):
     """
@@ -61,7 +67,7 @@ class LoginView(generics.GenericAPIView):
             'username': name
         })
         return Response(response.data,status.HTTP_200_OK)
-    
+
     def post(self,request):
         self.request = request
         username = request.data['username']
@@ -73,6 +79,3 @@ class LoginView(generics.GenericAPIView):
             return self.give_response("logged_in",token.key,username)
         else:
             return self.give_response("invalid_credentials","","")
-
-
-
