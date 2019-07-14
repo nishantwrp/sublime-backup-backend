@@ -6,7 +6,7 @@
 
 ----
 ## Deployment
-> Deployed Using Heroku [Deployment](https://sublime-backup.herokuapp.com/)
+> Deployed Using Heroku [See Deployment](https://sublime-backup.herokuapp.com/)
 
 ---
 ## Technical Stack
