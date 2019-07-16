@@ -1,10 +1,8 @@
 from rest_framework import serializers
 from .models import *
 
-class SnippetSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = snippet
-        fields = ('snippet_file',)
+class SnippetSerializer(serializers.Serializer):
+    snippet_file = serializers.FileField()
 
 class SnippetListSerializer(serializers.ModelSerializer):
     class Meta:
