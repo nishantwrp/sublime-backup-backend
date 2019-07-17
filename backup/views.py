@@ -59,16 +59,7 @@ class SnippetsDeleteView(generics.GenericAPIView):
     serializer_class = (ResponseSerializer)
 
     def get(self,request):
-        account_id = kloudless_keys.objects.get(name="account_id").key
-        token = kloudless_keys.objects.get(name="token").key
-        snippets = snippet.objects.filter(owner=request.user)
-        for obj in snippets:
-            url = "https://api.kloudless.com/v1/accounts/" + account_id + "/storage/files/" + obj.dropbox_id + "/?permanent=true"
-            headers = {
-            'Authorization' : "Bearer " + token
-            }
-            r = requests.delete(url=url,headers=headers)
-            obj.delete()
+        snippets = snippet.objects.filter(owner=request.user).delete()
         return give_response("snippets_deleted")
 
 def getSnippet(request,id):
