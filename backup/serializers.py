@@ -7,7 +7,7 @@ class SnippetSerializer(serializers.Serializer):
 class SnippetListSerializer(serializers.ModelSerializer):
     class Meta:
         model = snippet
-        fields = ('snippet_file','original_name')
+        fields = ('snippet_file','original_name','dropbox_id')
 
 
 class ResponseSerializer(serializers.Serializer):
