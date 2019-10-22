@@ -12,5 +12,5 @@
 ## Technical Stack
 - Django
 - Django Rest Framework
-- drf-yasg
+- drf-yasg Swagger Schema Generator
 
