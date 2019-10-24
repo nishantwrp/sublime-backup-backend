@@ -1,7 +1,7 @@
 # sublime-backup-backend
 ----
 ## Overview
-
+ 
 > This Repository holds the code for backend server used by sublime-backup [CLI tool](https://github.com/nishantwrp/sublime-backup-cli)
 
 ----
@@ -11,6 +11,6 @@
 ---
 ## Technical Stack
 - Django
-- Django Rest Framework
+- Django  Rest Framework
 - drf-yasg
 
