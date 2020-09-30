@@ -2,7 +2,7 @@
 ----
 ## Overview
 
-> This Repository holds the code for backend server used by sublime-backup [CLI tool](https://github.com/nishantwrp/sublime-backup-cli)
+> This Repo holds the code for backend server used by sublime-backup [CLI tool](https://github.com/nishantwrp/sublime-backup-cli)
 
 ----
 ## Deployment
